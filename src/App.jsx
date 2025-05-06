@@ -68,13 +68,31 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name="pizza spinaci"
+        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+        photoName="./pizzas/spinaci.jpg"
+        price={10}
+      />
+      <Pizza
+        name="Focaccia"
+        ingredients="Bread with italian olive oil and rosemary"
+        price={6}
+        photoName="pizzas/focaccia.jpg"
+      />
     </main>
   );
 }
-
+function Pizza(props) {
+  console.log(props);
+  return (
+    <>
+      <img src={props.photoName} alt={props.name} />
+      <h3>{props.name}</h3>
+      <p>{props.ingredients}</p>
+    </>
+  );
+}
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 8;
@@ -89,13 +107,4 @@ function Footer() {
   );
 }
 
-function Pizza() {
-  return (
-    <>
-      <img src="./pizzas/spinaci.jpg" alt="pizza spinaci" />
-      <h3>Pizza Spinaci</h3>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
-    </>
-  );
-}
 export default App;
